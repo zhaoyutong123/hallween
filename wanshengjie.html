@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 写样式 -->
+		<style>
+			html,body,div {
+				width: 100%;
+				height: 100%;
+			}
+			div {
+				background-repeat: no-repeat;
+				background-size: 100%100%;
+			}
+			#page1 {
+				background-image: url(img/halloween1.jpg);
+				display: block;
+			}
+
+			#page2 {
+				background-image: url(img/halloween2.jpg);
+				display: none;
+			}
+
+			#page3 {
+				background-image: url(img/halloweenMain.jpg);
+				display: none;
+			}
+
+			#page4 {
+				background-image: url(img/charm1.jpg);
+				display: none;
+			}
+			#title {
+				position: fixed;
+				left: 314px;
+				top: 40px;
+				animation: titlemove 2s;
+			}
+
+			@keyframes titlemove {
+				from {
+					opacity: 0;
+					/* 透明度 */
+				}
+
+				to {
+					opacity: 1;
+				}
+			}
+
+			#box {
+				position: fixed;
+				/* 位置,固定 */
+				left: 314px;
+				bottom: 560px;
+				/* 动画属性 */
+				animation: baohemove 800ms infinite;
+			}
+
+			/* 关键帧 */
+			@keyframes baohemove {
+				0% {
+					left: 300px;
+				}
+
+				50% {
+					left: 330px;
+				}
+
+				100% {
+					left: 315px;
+				}
+			}
+
+			#pumpkin {
+				position: fixed;
+				left: 280px;
+				top: 110px;
+			}
+
+			#startGame {
+				position: fixed;
+				left: 376px;
+				bottom: 300px;
+			}
+
+			#charm01 {
+				position: fixed;
+				left: 50px;
+				top: 100px;
+				animation: charm01move 2s infinite;
+			}
+
+			@keyframes charm01move {
+				0% {
+					left: 50px;
+					top: 50px;
+				}
+
+				50% {
+					left: 100px;
+					top: 100px;
+				}
+
+				75% {
+					left: 50px;
+					top: 100px;
+				}
+
+				100% {
+					left: 50px;
+					top: 50px;
+				}
+			}
+
+			#charm02 {
+				position: fixed;
+				left: 250px;
+				top: 400px;
+				animation: charm02move 3s infinite;
+			}
+
+			@keyframes charm02move {
+				0% {
+					left: 250px;
+					top: 400px;
+				}
+
+				30% {
+					left: 280px;
+					top: 420px;
+				}
+
+				60% {
+					left: 320px;
+					top: 420px;
+				}
+
+				100% {
+					left: 250px;
+					top: 400px;
+				}
+			}
+
+			#charm03 {
+				position: fixed;
+				left: 50px;
+				top: 650px;
+				animation: charm03move 2s infinite;
+			}
+
+			@keyframes charm03move {
+				0% {
+					left: 50px;
+					top: 650px
+				}
+
+				30% {
+					left: 150px;
+					top: 700px
+				}
+
+				60% {
+					left: 200px;
+					top: 730px
+				}
+
+				100% {
+					left: 50px;
+					top: 650px
+				}
+			}
+
+			#charm04 {
+				position: fixed;
+				left: 500px;
+				top: 50px;
+				animation: charm04move 2s infinite;
+			}
+
+			@keyframes charm04move {
+				0% {
+					left: 500px;
+					top: 50px;
+				}
+
+				50% {
+					left: 500px;
+					top: 150px;
+				}
+
+				75% {
+					left: 420px;
+					top: 50px;
+				}
+
+				100% {
+					left: 500px;
+					top: 50px;
+				}
+			}
+
+			#charm05 {
+				position: fixed;
+				left: 400px;
+				top: 900px;
+				animation: charm05move 3s infinite;
+			}
+
+			@keyframes charm05move {
+				0% {
+					left: 400px;
+					top: 900px;
+				}
+
+				50% {
+					left: 300px;
+					top: 950px;
+				}
+
+				75% {
+					left: 200px;
+					top: 1000px;
+				}
+
+				100% {
+					left: 400px;
+					top: 900px;
+				}
+			}
+
+			#charm06 {
+				position: fixed;
+				left: 300px;
+				top: 800px;
+				animation: charm06move 5s infinite;
+			}
+
+			@keyframes charm06move {
+				0% {
+					left: 300px;
+					top: 800px;
+				}
+				50%{
+					left: 300px;
+					top: 1200px;
+				}
+				100% {
+					left: 300px;
+					top: 800px;
+				}
+			}
+			#charm07 {
+				position: fixed;
+				right: 50px;
+				bottom: 300px;
+				/* 下面 */
+				animation: charm07move 2s infinite;
+			}
+			@keyframes charm07move{
+				from{
+					width: 200px;
+					height: 200px;
+				}
+				to{
+					width: 20px;
+					height: 20px;
+				}
+			}
+		</style>
+		<script>
+			// 跳转第二页
+// 			function gotofirst(page){
+// 				alert(page);弹出一个提示框
+// 				var page1 = document.getElementById("page1");
+// 				page1.style.display="none";
+// 				page2.style.display="block";
+			
+// 			function gotosecond(){
+// 				var page2 = document.getElementById("page2");
+// 				page2.style.display="none";
+// 				page3.style.display="block";
+// 			}
+			function gotoPage(page){
+			//page赋值多少就显示某一页，其他页面不显示
+			//所有页面不显示，只显示page赋值也
+			var page1 = document.getElementById("page1");
+			var page2 = document.getElementById("page2");
+			var page3 = document.getElementById("page3");
+			var page4 = document.getElementById("page4");
+			page1.style.display="none";
+			page2.style.display="none";
+			page3.style.display="none";
+			page4.style.display="none";
+			var p="page"+page;
+			var showPage=document.getElementById(p)
+			showPage.style.display="block";
+			}
+			// 随即展示图片的方法
+			function suijitu(){
+				// 显示第4张图片
+				gotoPage(4);
+				// 1.产生一个随机数
+				// [0,1)  左闭右开 1 2 3 4 5 6 7
+				var suijishu = Math.floor(Math.random()*7+1);
+				var pic ="url(img/charm"+suijishu+".jpg)";
+				 // 第二张图片的背景为随机产生的图片
+				var p1=document.getElementById("page4");
+				p1.style.backgroundImage=pic;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="page1">
+			<!-- 在div中显示  标题和 宝盒 -->
+			<img id="title" src="img/title.png" />
+			<img id="box" src="img/box.png"       onclick="gotoPage(2)"/>
+		</div>
+		<div id="page2">
+			<img id="pumpkin" src="img/pumpkin.png" />
+			<img id="startGame" src="img/startGame.jpg"          onclick="gotoPage(3)"/>
+		</div>
+		<div id="page3">
+			<img id="charm01" src="img/1.png"   onclick="suijitu()"/>
+			<img id="charm02" src="img/2.png"   onclick="suijitu()"/>
+			<img id="charm03" src="img/3.png"    onclick="suijitu()"/>
+			<img id="charm04" src="img/4.png"     onclick="suijitu()"/>
+			<img id="charm05" src="img/5.png"     onclick="suijitu()"/>
+			<img id="charm06" src="img/6.png"     onclick="suijitu()"/>
+			<img id="charm07" src="img/7.png"      onclick="suijitu()"/>
+		</div>
+		<div id="page4">
+	
+		</div>
+	</body>
+</html>
